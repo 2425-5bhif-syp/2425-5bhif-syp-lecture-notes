@@ -5,8 +5,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.20">
+<meta name="author" content="Thomas Stütz">
 <link rel="icon" type="image/png" href="themes/favicon.png">
-<title>Index page</title>
+<title>24/25 4bhif syp - Lecture Notes</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -444,20 +445,101 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
     }
 </style>
 </head>
-<body class="article">
+<body class="article toc2 toc-left">
 <div id="header">
-<h1>Index page</h1>
+<h1>24/25 4bhif syp - Lecture Notes</h1>
+<div class="details">
+<span id="author" class="author">Thomas Stütz</span><br>
+<span id="revnumber">version 1.0.0,</span>
+<span id="revdate">2024-09-20</span>
+<br><span id="revremark">Lecture Notes for Courses at HTL Leonding</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_2024_09_13_http_filter">1. 2024-09-13 http-Filter</a></li>
+<li><a href="#_2024_09_20">2. 2024-09-20</a>
+<ul class="sectlevel2">
+<li><a href="#_container_request_filter">2.1. container request filter</a></li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 <div id="content">
-<div class="imageblock">
-<div class="content">
-<img src="images/img.png" alt="img">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><span class="icon"><a class="image" href="https://github.com/2324-4bhif-wmc/2324-4bhif-wmc-lecture-notes/main/asciidocs/index.adoc"><i class="fa fa-file-text-o"></i></a></span> ‏ ‏ ‎
+<span class="icon"><a class="image" href="https://github.com/2324-4bhif-wmc/2324-4bhif-wmc-lecture-notes"><i class="fa fa-github-square"></i></a></span> ‏ ‏ ‎
+<span class="icon"><a class="image" href="http://edufs.edu.htl-leonding.ac.at/~t.stuetz/hugo/2021/01/lecture-notes/"><i class="fa fa-home"></i></a></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2024_09_13_http_filter"><a class="anchor" href="#_2024_09_13_http_filter"></a>1. 2024-09-13 http-Filter</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Ein Filter kann den Request überprüfen bzw den Response ändern</p>
+</li>
+<li>
+<p>in der Cloud können wir keine Cookies verwenden, da diese am Client liegen. Der Server muss immer in der DB nachschauen (oder der Client müsste immer zum selben Server groutet werden) &#8594; das wäre zu langsam.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Sticky Session sind nicht optimal, da der LoadBalancer den Client immer zum selben Pod schicken würde.</p>
+</li>
+<li>
+<p>Lösungen wie Keycloak verwenden trotzdem Cookies (ist performancemäßig egal, da man sich eh nicht so oft authentifiziert &#8594; ebenfalls DB-Zugriff)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2024_09_20"><a class="anchor" href="#_2024_09_20"></a>2. 2024-09-20</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_container_request_filter"><a class="anchor" href="#_container_request_filter"></a>2.1. container request filter</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Prüft, ob im Header die Authentifizierung (wer bin ich) passt.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>&#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p>Problem:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Die zwei Filter sind unabhängig</p>
+</li>
+<li>
+<p>Wir müssen jedoch username und password vom Authentication Filter zum Authorization Filter übergeben</p>
+</li>
+<li>
+<p>Dazu verwenden wir den ContainerRequestContext</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-09-19 19:34:20 UTC
+Version 1.0.0<br>
+Last updated 2024-09-20 10:02:42 UTC
 </div>
 </div>
 </body>
