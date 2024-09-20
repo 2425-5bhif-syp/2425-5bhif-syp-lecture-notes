@@ -6,6 +6,7 @@ import jakarta.inject.Inject;
 import jakarta.ws.rs.Priorities;
 import jakarta.ws.rs.container.ContainerRequestContext;
 import jakarta.ws.rs.container.ContainerRequestFilter;
+import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.ext.Provider;
 
 import java.io.IOException;
@@ -22,12 +23,18 @@ public class AuthenticationFilter implements ContainerRequestFilter {
     public void filter(ContainerRequestContext ctx) throws IOException {
         Log.info("Container Request Filter for authentication - Wer bin ich?");
 
-        Log.info(ctx.getHeaderString("Authorization"));
+        //Log.info(ctx.getHeaderString("Authorization"));
         var credentials = base64AuthenticationParser.parseAuthenticationHeader(ctx.getHeaderString("Authorization"));
-        Log.infof("credentials.username=%s, credentials.password=%s"
-                , credentials.username()
-                , credentials.password()
-        );
-        ctx.setProperty(CREDENTIALS, credentials);
+        if (credentials != null) {
+
+            Log.infof("credentials.username=%s, credentials.password=%s"
+                    , credentials.username()
+                    , credentials.password()
+            );
+            ctx.setProperty(CREDENTIALS, credentials);
+        } else {
+            ctx.abortWith(Response.status(Response.Status.UNAUTHORIZED).build());
+
+        }
     }
 }
