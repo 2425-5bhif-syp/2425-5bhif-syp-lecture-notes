@@ -1,4 +1,39 @@
-= Index page
+= 24/25 4bhif syp - Lecture Notes
+Thomas Stütz
+1.0.0, {docdate}: Lecture Notes for Courses at HTL Leonding
+:icons: font
+:experimental:
+:sectnums:
 ifndef::imagesdir[:imagesdir: images]
+:toc:
+ifdef::backend-html5[]
+// https://fontawesome.com/v4.7.0/icons/
+icon:file-text-o[link=https://github.com/2324-4bhif-wmc/2324-4bhif-wmc-lecture-notes/main/asciidocs/{docname}.adoc] ‏ ‏ ‎
+icon:github-square[link=https://github.com/2324-4bhif-wmc/2324-4bhif-wmc-lecture-notes] ‏ ‏ ‎
+icon:home[link=http://edufs.edu.htl-leonding.ac.at/~t.stuetz/hugo/2021/01/lecture-notes/]
+endif::backend-html5[]
 
-image::img.png[]
+== 2024-09-13 http-Filter
+
+* Ein Filter kann den Request überprüfen bzw den Response ändern
+* in der Cloud können wir keine Cookies verwenden, da diese am Client liegen. Der Server muss immer in der DB nachschauen (oder der Client müsste immer zum selben Server groutet werden) -> das wäre zu langsam.
+** Sticky Session sind nicht optimal, da der LoadBalancer den Client immer zum selben Pod schicken würde.
+** Lösungen wie Keycloak verwenden trotzdem Cookies (ist performancemäßig egal, da man sich eh nicht so oft authentifiziert -> ebenfalls DB-Zugriff)
+
+
+== 2024-09-20
+
+=== container request filter
+
+* Prüft, ob im Header die Authentifizierung (wer bin ich) passt.
+
+
+
+...
+
+
+Problem:
+
+* Die zwei Filter sind unabhängig
+* Wir müssen jedoch username und password vom Authentication Filter zum Authorization Filter übergeben
+* Dazu verwenden wir den ContainerRequestContext
