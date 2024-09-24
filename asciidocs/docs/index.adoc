@@ -1,4 +1,4 @@
-= 24/25 4bhif syp - Lecture Notes
+= 24/25 5bhif syp - Lecture Notes
 Thomas Stütz
 1.0.0, {docdate}: Lecture Notes for Courses at HTL Leonding
 :icons: font
