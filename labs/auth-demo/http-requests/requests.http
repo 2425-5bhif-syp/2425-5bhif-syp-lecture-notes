@@ -1,0 +1,16 @@
+#
+GET http://localhost:8080/hello
+Authorization: Basic YWRtaW46cGFzc3dvcmQ=
+
+###
+GET http://localhost:8080/hello
+Authorization: Basic ZWluOmJhdW0=
+
+###
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+  "username": "Max",
+  "password": "123456"
+}
