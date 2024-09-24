@@ -20,14 +20,18 @@ public class AuthorizationFilter implements ContainerRequestFilter {
         Log.info("Container Request Filter for authorization - Was darf ich?");
 
         var credentials = (Credentials) ctx.getProperty(AuthenticationFilter.CREDENTIALS);
-        Log.infof("Was darf ich\ncredentials.username=%s, credentials.password=%s"
-                , credentials.username()
-                , credentials.password()
-        );
 
-        if (!credentials.username().equals("user") || !credentials.password().equals("passwd")) {
-            ctx.abortWith(Response.status(Response.Status.FORBIDDEN).build());
+        if (credentials != null) {
+
+            Log.infof("Was darf ich\ncredentials.username=%s, credentials.password=%s"
+                    , credentials.username()
+                    , credentials.password()
+            );
+
+            if (!credentials.username().equals("user") || !credentials.password().equals("passwd")) {
+                ctx.abortWith(Response.status(Response.Status.FORBIDDEN).build());
+            }
+
         }
-
     }
 }

@@ -14,3 +14,12 @@ GET http://localhost:8080/hello
 Authorization: Basic am9objpkb2U=
 
 ###
+
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+  "username": "user",
+  "password": "passwd"
+}
+###

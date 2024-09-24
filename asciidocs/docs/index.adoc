@@ -37,3 +37,10 @@ Problem:
 * Die zwei Filter sind unabhängig
 * Wir müssen jedoch username und password vom Authentication Filter zum Authorization Filter übergeben
 * Dazu verwenden wir den ContainerRequestContext
+
+
+HÜ:
+
+* Unit-Tests erstellen mit rest-assured
+* beim Login Session in DB erstellen (Cookies in DB speichern)
+* wir verwenden als DB H2
