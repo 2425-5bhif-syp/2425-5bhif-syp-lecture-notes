@@ -39,18 +39,19 @@ public class AuthenticationFilter implements ContainerRequestFilter {
 
         if (annotation == null) {
 
-            //Log.info(ctx.getHeaderString("Authorization"));
-            var credentials = base64AuthenticationParser.parseAuthenticationHeader(ctx.getHeaderString("Authorization"));
-            if (credentials != null) {
-
-                Log.infof("credentials.username=%s, credentials.password=%s"
-                        , credentials.username()
-                        , credentials.password()
-                );
-                ctx.setProperty(CREDENTIALS, credentials);
-            } else {
-                ctx.abortWith(Response.status(Response.Status.UNAUTHORIZED).build());
-            }
+            Log.info("Authorization=" + ctx.getHeaderString("Authorization"));
+            Log.info("Cookie="+ctx.getCookies().get("Session"));
+//            var credentials = base64AuthenticationParser.parseAuthenticationHeader(ctx.getHeaderString("Authorization"));
+//            if (credentials != null) {
+//
+//                Log.infof("credentials.username=%s, credentials.password=%s"
+//                        , credentials.username()
+//                        , credentials.password()
+//                );
+//                ctx.setProperty(CREDENTIALS, credentials);
+//            } else {
+//                ctx.abortWith(Response.status(Response.Status.UNAUTHORIZED).build());
+//            }
         } else {
             Log.info("@AllowAll detected");
         }

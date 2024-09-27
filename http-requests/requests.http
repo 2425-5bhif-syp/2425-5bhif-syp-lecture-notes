@@ -6,7 +6,7 @@ Authorization: Basic dXNlcjpwYXNzd2Q=
 ###
 
 GET http://localhost:8080/hello
-
+Cookie: {{cookie}}
 ###
 
 # echo -n "john:doe" | base64
@@ -19,8 +19,10 @@ POST http://localhost:8080/login
 Content-Type: application/json
 
 {
-  "username": "user",
-  "password": "passwd"
+  "username": "chris",
+  "password": "password"
 }
+
+> {% client.global.set("cookie", response.headers.valueOf("Set-Cookie")); %}
 ###
 

@@ -18,6 +18,13 @@ public class Session {
 
     private LocalDateTime createdAt;
 
+    public Session() {
+    }
+
+    public Session(User first) {
+
+    }
+
     public UUID getId() {
         return id;
     }
