@@ -1,8 +1,7 @@
-package at.htl.features.login;
+package at.htl.features.user;
 
-import at.htl.auth.Base64AuthenticationParser;
+import at.htl.auth.AllowAll;
 import io.quarkus.logging.Log;
-import jakarta.annotation.security.PermitAll;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
@@ -12,7 +11,7 @@ import jakarta.ws.rs.core.Response;
 
 import static at.htl.auth.Base64AuthenticationParser.*;
 
-@PermitAll
+@AllowAll
 @Path("login")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)

@@ -45,3 +45,52 @@ HÜ:
 * Unit-Tests erstellen mit rest-assured
 * beim Login Session in DB erstellen (Cookies in DB speichern)
 * wir verwenden als DB H2
+
+
+== 2024-09-27
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=tko9EBpcJ6kfLPtq&amp;list=PLO-P6W97sI0SHma8SBlKlDP3qYX82PvUu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+++++
+
+=== Betriebsmodi für Datenbanken
+
+image::betriebsmodi-datenbanken.png
+
+
+
+== Aufgabenstellung
+
+* ein User-Tabelle wird erstellt (Password hashen und salten) und auch Session-Tabelle
+
+* eigene Annotation @AllowAll wird erstellt
+
+* Ablauf
+** nach Überprüfen des Usernames und Password wird eine Session in die DB eingetragen mit FK auf User
+** die Session erhält eine UUID und einen Zeitstempel (Gültigkeit zB 1h)
+** die Session wird nun mit Set-Cookie an den Browser gesendet
+** die Browser senden nun dieses Cookie bei jedem Request an den Endpoint zurück
+** im Authentication-Filter (wer bin ich) wird aus dem Cookie der User durch DB-Zugriff festgestellt.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

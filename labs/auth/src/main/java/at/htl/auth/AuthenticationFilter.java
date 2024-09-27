@@ -32,7 +32,7 @@ public class AuthenticationFilter implements ContainerRequestFilter {
     @Override
     public void filter(ContainerRequestContext ctx) throws IOException {
 
-        var annotation = resourceInfo.getResourceClass().getAnnotation(PermitAll.class);
+        var annotation = resourceInfo.getResourceClass().getAnnotation(AllowAll.class);
 
 
         Log.info("Container Request Filter for authentication - Wer bin ich?");
@@ -52,7 +52,7 @@ public class AuthenticationFilter implements ContainerRequestFilter {
                 ctx.abortWith(Response.status(Response.Status.UNAUTHORIZED).build());
             }
         } else {
-            Log.info("@PermitAll detected");
+            Log.info("@AllowAll detected");
         }
     }
 }
