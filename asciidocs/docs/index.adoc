@@ -73,10 +73,38 @@ image::betriebsmodi-datenbanken.png
 ** im Authentication-Filter (wer bin ich) wird aus dem Cookie der User durch DB-Zugriff festgestellt.
 
 
+* HÜ
+** Was haben wir bisher:
+*** Wir haben einen Login-Request mit AllowAll
+*** Alles wird durchgelassen, es wird in der Datenbank eine Session erstellt.
+*** Als Response des Login-Requests wird ein Cookie dem Browser übergeben
+*** Bei jeden (hello-) Request wird ein Cookie mitgesendet.
+
+** Was ist zu tun?
+*** Bei jedem neuen Request wird aus der Session Tabelle der User herausgeholt (Wer bin ich - Filter)
+*** Diese User-Credentials werden in den Context-Properties gespeichert.
+*** Im Was darf ich - Filter wird für jeden Endpoint kontrolliert, ob eine User Id vorhanden ist
+
+** Kommende Woche
+*** @RolesAllowed
+*** Rollenkonzept einführen
+
+
+== @Provider in JAX-RS
+
+* https://docs.redhat.com/en/documentation/jboss_enterprise_application_platform_common_criteria_certification/5/epub/resteasy_reference_guide/index#JAX-RS_Content_Negotiation
+
+* Jax-RS Plugin
+* für neue MessageBodyWriter/-Reader und Filter
 
 
 
+== @Produces von CDI
 
+
+* https://weld.cdi-spec.org/
+
+* Eine Objekt wird beim @Inject nicht vom Container instanziert, sondern meine Funktion mit "new" wird verwendet
 
 
 
