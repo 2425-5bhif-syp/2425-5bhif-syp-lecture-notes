@@ -469,6 +469,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_aufgabenstellung">4. Aufgabenstellung</a></li>
+<li><a href="#_provider_in_jax_rs">5. @Provider in JAX-RS</a></li>
+<li><a href="#_produces_von_cdi">6. @Produces von CDI</a></li>
 </ul>
 </div>
 </div>
@@ -605,6 +607,94 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 </li>
+<li>
+<p>HÜ</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Was haben wir bisher:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Wir haben einen Login-Request mit AllowAll</p>
+</li>
+<li>
+<p>Alles wird durchgelassen, es wird in der Datenbank eine Session erstellt.</p>
+</li>
+<li>
+<p>Als Response des Login-Requests wird ein Cookie dem Browser übergeben</p>
+</li>
+<li>
+<p>Bei jeden (hello-) Request wird ein Cookie mitgesendet.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Was ist zu tun?</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Bei jedem neuen Request wird aus der Session Tabelle der User herausgeholt (Wer bin ich - Filter)</p>
+</li>
+<li>
+<p>Diese User-Credentials werden in den Context-Properties gespeichert.</p>
+</li>
+<li>
+<p>Im Was darf ich - Filter wird für jeden Endpoint kontrolliert, ob eine User Id vorhanden ist</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Kommende Woche</p>
+<div class="ulist">
+<ul>
+<li>
+<p>@RolesAllowed</p>
+</li>
+<li>
+<p>Rollenkonzept einführen</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_provider_in_jax_rs"><a class="anchor" href="#_provider_in_jax_rs"></a>5. @Provider in JAX-RS</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.redhat.com/en/documentation/jboss_enterprise_application_platform_common_criteria_certification/5/epub/resteasy_reference_guide/index#JAX-RS_Content_Negotiation" class="bare">https://docs.redhat.com/en/documentation/jboss_enterprise_application_platform_common_criteria_certification/5/epub/resteasy_reference_guide/index#JAX-RS_Content_Negotiation</a></p>
+</li>
+<li>
+<p>Jax-RS Plugin</p>
+</li>
+<li>
+<p>für neue MessageBodyWriter/-Reader und Filter</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_produces_von_cdi"><a class="anchor" href="#_produces_von_cdi"></a>6. @Produces von CDI</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://weld.cdi-spec.org/" class="bare">https://weld.cdi-spec.org/</a></p>
+</li>
+<li>
+<p>Eine Objekt wird beim @Inject nicht vom Container instanziert, sondern meine Funktion mit "new" wird verwendet</p>
+</li>
 </ul>
 </div>
 </div>
@@ -613,7 +703,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0<br>
-Last updated 2024-09-27 10:19:40 UTC
+Last updated 2024-09-27 17:08:49 UTC
 </div>
 </div>
 </body>
