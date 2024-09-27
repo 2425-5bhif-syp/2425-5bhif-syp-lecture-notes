@@ -451,7 +451,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="details">
 <span id="author" class="author">Thomas Stütz</span><br>
 <span id="revnumber">version 1.0.0,</span>
-<span id="revdate">2024-09-24</span>
+<span id="revdate">2024-09-27</span>
 <br><span id="revremark">Lecture Notes for Courses at HTL Leonding</span>
 </div>
 <div id="toc" class="toc2">
@@ -463,6 +463,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_container_request_filter">2.1. container request filter</a></li>
 </ul>
 </li>
+<li><a href="#_2024_09_27">3. 2024-09-27</a>
+<ul class="sectlevel2">
+<li><a href="#_betriebsmodi_für_datenbanken">3.1. Betriebsmodi für Datenbanken</a></li>
+</ul>
+</li>
+<li><a href="#_aufgabenstellung">4. Aufgabenstellung</a></li>
 </ul>
 </div>
 </div>
@@ -554,11 +560,60 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_2024_09_27"><a class="anchor" href="#_2024_09_27"></a>3. 2024-09-27</h2>
+<div class="sectionbody">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=tko9EBpcJ6kfLPtq&amp;list=PLO-P6W97sI0SHma8SBlKlDP3qYX82PvUu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div class="sect2">
+<h3 id="_betriebsmodi_für_datenbanken"><a class="anchor" href="#_betriebsmodi_für_datenbanken"></a>3.1. Betriebsmodi für Datenbanken</h3>
+<div class="paragraph">
+<p>image::betriebsmodi-datenbanken.png</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_aufgabenstellung"><a class="anchor" href="#_aufgabenstellung"></a>4. Aufgabenstellung</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>ein User-Tabelle wird erstellt (Password hashen und salten) und auch Session-Tabelle</p>
+</li>
+<li>
+<p>eigene Annotation @AllowAll wird erstellt</p>
+</li>
+<li>
+<p>Ablauf</p>
+<div class="ulist">
+<ul>
+<li>
+<p>nach Überprüfen des Usernames und Password wird eine Session in die DB eingetragen mit FK auf User</p>
+</li>
+<li>
+<p>die Session erhält eine UUID und einen Zeitstempel (Gültigkeit zB 1h)</p>
+</li>
+<li>
+<p>die Session wird nun mit Set-Cookie an den Browser gesendet</p>
+</li>
+<li>
+<p>die Browser senden nun dieses Cookie bei jedem Request an den Endpoint zurück</p>
+</li>
+<li>
+<p>im Authentication-Filter (wer bin ich) wird aus dem Cookie der User durch DB-Zugriff festgestellt.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0<br>
-Last updated 2024-09-24 04:32:58 UTC
+Last updated 2024-09-27 10:19:40 UTC
 </div>
 </div>
 </body>
