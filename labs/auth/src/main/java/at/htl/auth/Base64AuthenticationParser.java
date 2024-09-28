@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 @ApplicationScoped
 public class Base64AuthenticationParser {
-    public static final Pattern basicAuthenticationPattern = Pattern.compile("Basic (.*)");
+    private static final Pattern BASIC_AUTHENTICATION_PATTERN = Pattern.compile("Basic (.*)");
 
     public static record Credentials(String username, String password) {
 
@@ -18,7 +18,7 @@ public class Base64AuthenticationParser {
     public Credentials parseAuthenticationHeader(String header) {
         Credentials credentials = null;
         if (header != null) {
-            var matcher = basicAuthenticationPattern.matcher(header);
+            var matcher = BASIC_AUTHENTICATION_PATTERN.matcher(header);
             boolean matchFound = matcher.find();
             if (matchFound) {
                 var encodedCredentials = matcher.group(1);
