@@ -55,7 +55,7 @@ HÜ:
 
 === Betriebsmodi für Datenbanken
 
-image::betriebsmodi-datenbanken.png
+image::betriebsmodi-datenbanken.png[]
 
 
 
