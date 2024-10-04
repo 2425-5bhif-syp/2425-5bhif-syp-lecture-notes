@@ -451,7 +451,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="details">
 <span id="author" class="author">Thomas Stütz</span><br>
 <span id="revnumber">version 1.0.0,</span>
-<span id="revdate">2024-09-29</span>
+<span id="revdate">2024-10-04</span>
 <br><span id="revremark">Lecture Notes for Courses at HTL Leonding</span>
 </div>
 <div id="toc" class="toc2">
@@ -471,6 +471,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_aufgabenstellung">4. Aufgabenstellung</a></li>
 <li><a href="#_provider_in_jax_rs">5. @Provider in JAX-RS</a></li>
 <li><a href="#_produces_von_cdi">6. @Produces von CDI</a></li>
+<li><a href="#_2024_10_04">7. 2024-10-04</a>
+<ul class="sectlevel2">
+<li><a href="#_jwt">7.1. JWT</a></li>
+<li><a href="#_mob_programming">7.2. MOB-Programming</a></li>
+<li><a href="#_git_secret">7.3. git-secret</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -701,11 +708,172 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_2024_10_04"><a class="anchor" href="#_2024_10_04"></a>7. 2024-10-04</h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="images/input-throughput-output.png" alt="input throughput output">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/schnittstellen-kontextdiagramm.png" alt="schnittstellen kontextdiagramm">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/schnittstellen-kontextdiagramm.png" alt="schnittstellen kontextdiagramm">
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jwt"><a class="anchor" href="#_jwt"></a>7.1. JWT</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Bislang haben wir Cookies verwendet.</p>
+</li>
+<li>
+<p>Nachteil: Bei jedem Request erfolgt ein Datenbankzugriff</p>
+</li>
+<li>
+<p>Abhilfe&gt; Sticky Session</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Ein User wird immer mit dem ersten Server verbunden, mit dem er Kontakt hatte (Lastverteilung)</p>
+</li>
+<li>
+<p>Auf diesem Server werden die Cookies auf das File System (oder lokale DB) geschrieben</p>
+</li>
+<li>
+<p>Dieses Verfahren ist daher nicht optimal</p>
+</li>
+<li>
+<p>Abhilfe: JWT</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Rolle: Gruppierung von Rechten</p>
+</li>
+<li>
+<p>Usergroup: Gruppierung von Usern</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/loadbalancer-pods-db.png" alt="loadbalancer pods db">
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aufbau"><a class="anchor" href="#_aufbau"></a>7.1.1. Aufbau</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Ist eine Konvention, wie eine JWT geschickt wird (Struktur und keine Zufallszahl wie bei Cookies)</p>
+</li>
+<li>
+<p>Struktur besteht aus drei Teilen</p>
+<div class="ulist">
+<ul>
+<li>
+<p>header</p>
+</li>
+<li>
+<p>payload</p>
+</li>
+<li>
+<p>signature</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>iss</code> in payload muss überprüft werden &#8594; Wer hat das Zertifikat ausgestellt?</p>
+</li>
+<li>
+<p><a href="https://jwt.io/introduction" class="bare">https://jwt.io/introduction</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mob_programming"><a class="anchor" href="#_mob_programming"></a>7.2. MOB-Programming</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>alle - ausser dem Driver - schließen den Laptop</p>
+</li>
+<li>
+<p>Navigator: hört sich an, was der Mob ansagt und filtert das richtige raus und diktiert dem Driver</p>
+</li>
+<li>
+<p>Driver: tippt den Code</p>
+</li>
+<li>
+<p>nach ca. 15 min wird gewechselt</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_git_secret"><a class="anchor" href="#_git_secret"></a>7.3. git-secret</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://sobolevn.me/git-secret/" class="bare">https://sobolevn.me/git-secret/</a></p>
+</li>
+<li>
+<p><a href="https://asciinema.org/a/41811?autoplay=1" class="bare">https://asciinema.org/a/41811?autoplay=1</a></p>
+</li>
+<li>
+<p><a href="https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key" class="bare">https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key</a></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>❯ gpg --list-keys
+[keyboxd]
+---------
+pub   ed25519 2024-03-15 [SC]
+      14705EAD108F834E310178E5191650E41055DC8E
+uid           [ultimate] Thomas W. Stütz &lt;t.stuetz@htl-leonding.ac.at&gt;
+sub   cv25519 2024-03-15 [E]
+
+❯ gpg --armor --export t.stuetz@htl-leonding.ac.at
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+mDMEZfQUoxYJKwYBBAHaRw8BAQdAZlX/fAe4TuqQeJbl1lBcM8ZxBVR10SZSiJoe
+/yPaBim0LlRob21hcyBXLiBTdMO8dHogPHQuc3R1ZXR6QGh0bC1sZW9uZGluZy5h
+Yy5hdD6IkwQTFgoAOxYhBBRwXq0Qj4NOMQF45RkWUOQQVdyOBQJl9BSjAhsDBQsJ
+CAcCAiICBhUKCQgLAgQWAgMBAh4HAheAAAoJEBkWUOQQVdyOLYMBAPIZgbyPEcnI
+03mKahdjEAi+UF8FPPB9ECMMoOHyCXJpAQD4TwenokZmZDuh75NATqLVOKLyG0yV
+0hdHefQCx0oRDLg4BGX0FKMSCisGAQQBl1UBBQEBB0DJuoCXAZ3pytv+xKhN4yHm
+JoicXGuDwa8SHc1x7uOAMgMBCAeIeAQYFgoAIBYhBBRwXq0Qj4NOMQF45RkWUOQQ
+VdyOBQJl9BSjAhsMAAoJEBkWUOQQVdyOKXgBANHbZH3n/3UxyLXulvWk95jS7Yc6
+JH6odqFX9xlwIteYAQCpy+sU3bh2kdbjMb6Q1Td4F1zoSsav+lB+ZPENjRlnDw==
+=wAG
+-----END PGP PUBLIC KEY BLOCK-----</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>gpg --import public_key.txt</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0<br>
-Last updated 2024-09-29 14:50:31 UTC
+Last updated 2024-10-04 13:06:13 UTC
 </div>
 </div>
 </body>
