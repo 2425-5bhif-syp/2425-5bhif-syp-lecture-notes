@@ -1,4 +1,10 @@
 
+GET http://localhost:8080/hello
+
+# Hello RESTEasy x
+
+###
+
 # echo -n "user:passwd" | base64
 GET http://localhost:8080/hello
 Authorization: Basic dXNlcjpwYXNzd2Q=

@@ -33,7 +33,8 @@ public class AuthenticationFilter implements ContainerRequestFilter {
     public void filter(ContainerRequestContext ctx) throws IOException {
 
         var annotation = resourceInfo.getResourceClass().getAnnotation(AllowAll.class);
-
+        // Mit der ResourceInfo kann auch auf MEthodenAnnotationen zugegriffen werden
+        var annotation2 = resourceInfo.getResourceMethod().getAnnotation(AllowAll.class);
 
         Log.info("Container Request Filter for authentication - Wer bin ich?");
 
@@ -50,6 +51,7 @@ public class AuthenticationFilter implements ContainerRequestFilter {
 //                );
 //                ctx.setProperty(CREDENTIALS, credentials);
 //            } else {
+            // Hier dürfte kein abort() sein, sondern nichts machen und an den AuthorizationFilter delegieren (weiterleiten)
 //                ctx.abortWith(Response.status(Response.Status.UNAUTHORIZED).build());
 //            }
         } else {

@@ -22,7 +22,7 @@ public class Session {
     }
 
     public Session(User first) {
-
+        this.user = first;
     }
 
     public UUID getId() {

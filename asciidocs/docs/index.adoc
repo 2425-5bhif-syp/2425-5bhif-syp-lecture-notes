@@ -193,6 +193,62 @@ gpg --import public_key.txt
 ----
 
 
+== 2024-11-08
+
+=== CDI
+
+* https://docs.jboss.org/weld/reference/latest/en-US/html_single/[Weld Dependency Framework^]
+
+=== Security
+
+==== Bsp 1: Basic Authentication mit User und Password base64 codiert
+
+image::authorization-and-authentication.png[]
+
+
+
+
+==== Bsp 2: Authorization mit Annotations
+
+* Problem: Man braucht public-Ressourcen um einen Anlaufpunkt fürs Anmelden zu haben bzw  als Frontpage
+
+* Wir möchten mit Annotations arbeiten, um bei Ressourcen zB @AllowAll darüberschreiben zu können
+
+* Es werden Annotations eingeführt
+
+
+* Erstellen einer Annotation @AllowAll
+
+[source,java]
+----
+package at.htl.auth;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+@Target({ElementType.TYPE, ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+public @interface AllowAll {
+}
+----
+
+** Im authenticationFilter wird überprüft, ob AllowAll. Sicherlich besser in AuthorizationFilter
+
+
+==== Bsp 3: Login in Session speichern
+
+* Übung
+** Richtigstellen: Überprüfung von AllowAll vom AuthenticationFilter zu AuthorizationFilter. Wenn bei Klasse eine strengere Permission steht und bei MEthoden eine @AllowAll, dann gilt immer die freizügigere Permission
+
+//--
+
+. In LoginResource wird eine Session erstellt (Cookie)
+
+
+
+
 
 
 

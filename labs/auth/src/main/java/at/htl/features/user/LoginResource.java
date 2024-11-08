@@ -32,23 +32,37 @@ public class LoginResource {
     @Transactional
     @POST
     public Response login(Credentials credentials) {
+
+        var response = Response.ok();  // think positive
+
         Log.info("Login - I was here!");
 
         var users = userRepository
-                .list("name",credentials.username());
+                .list("name", credentials.username());
 
-        if(users.isEmpty() || !Objects.equals(users.getFirst().getPassword(), credentials.password()))
-            return Response.status(Response.Status.UNAUTHORIZED).build();
+//        // Login geht schief
+//        if(users.isEmpty() || !Objects.equals(users.getFirst().getPassword(), credentials.password()))
+//            return Response.status(Response.Status.UNAUTHORIZED).build();
+//        // Keine early-returns wegen Fehlersuche
 
-        Session newSession = new Session(users.getFirst());
+        if (users.isEmpty() || !Objects.equals(users.getFirst().getPassword(), credentials.password())) {
+            //return Response.status(Response.Status.UNAUTHORIZED).build();
+            response = Response.status(Response.Status.UNAUTHORIZED);
+        } else {
 
-        sessionRepository.persist(newSession);
+            // Login ok
+            Session newSession = new Session(users.getFirst());
 
-        return Response
-                .ok()
-                .header("Set-Cookie", String.format("Session=%s", newSession.getId()))
-                .build();
+            sessionRepository.persist(newSession);
+            response.header("Set-Cookie", String.format("Session=%s", newSession.getId()));
+        }
+        return response.build();
 
     }
 
+    // Coding Style
+    // * keine early returns -> Variable bauen und am Schluß zurückgeben
+    // * bei if-Stmt IMMER geschwungene Klammer
+    // * Wir verwenden keine WebApplicationException, weil bei Lambdas sind Exception hinderlich
+    // * Keine Konstruktoren mit Parameter verwenden, sondern explizit zuweisen
 }
