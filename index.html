@@ -436,6 +436,120 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge, pre.rouge .w {
+  color: #24292f;
+  background-color: #f6f8fa;
+}
+pre.rouge .k, pre.rouge .kd, pre.rouge .kn, pre.rouge .kp, pre.rouge .kr, pre.rouge .kt, pre.rouge .kv {
+  color: #cf222e;
+}
+pre.rouge .gr {
+  color: #f6f8fa;
+}
+pre.rouge .gd {
+  color: #82071e;
+  background-color: #ffebe9;
+}
+pre.rouge .nb {
+  color: #953800;
+}
+pre.rouge .nc {
+  color: #953800;
+}
+pre.rouge .no {
+  color: #953800;
+}
+pre.rouge .nn {
+  color: #953800;
+}
+pre.rouge .sr {
+  color: #116329;
+}
+pre.rouge .na {
+  color: #116329;
+}
+pre.rouge .nt {
+  color: #116329;
+}
+pre.rouge .gi {
+  color: #116329;
+  background-color: #dafbe1;
+}
+pre.rouge .kc {
+  color: #0550ae;
+}
+pre.rouge .l, pre.rouge .ld, pre.rouge .m, pre.rouge .mb, pre.rouge .mf, pre.rouge .mh, pre.rouge .mi, pre.rouge .il, pre.rouge .mo, pre.rouge .mx {
+  color: #0550ae;
+}
+pre.rouge .sb {
+  color: #0550ae;
+}
+pre.rouge .bp {
+  color: #0550ae;
+}
+pre.rouge .ne {
+  color: #0550ae;
+}
+pre.rouge .nl {
+  color: #0550ae;
+}
+pre.rouge .py {
+  color: #0550ae;
+}
+pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
+  color: #0550ae;
+}
+pre.rouge .o, pre.rouge .ow {
+  color: #0550ae;
+}
+pre.rouge .gh {
+  color: #0550ae;
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #0550ae;
+  font-weight: bold;
+}
+pre.rouge .s, pre.rouge .sa, pre.rouge .sc, pre.rouge .dl, pre.rouge .sd, pre.rouge .s2, pre.rouge .se, pre.rouge .sh, pre.rouge .sx, pre.rouge .s1, pre.rouge .ss {
+  color: #0a3069;
+}
+pre.rouge .nd {
+  color: #8250df;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #8250df;
+}
+pre.rouge .err {
+  color: #f6f8fa;
+  background-color: #82071e;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cm, pre.rouge .cp, pre.rouge .cpf, pre.rouge .c1, pre.rouge .cs {
+  color: #6e7781;
+}
+pre.rouge .gl {
+  color: #6e7781;
+}
+pre.rouge .gt {
+  color: #6e7781;
+}
+pre.rouge .ni {
+  color: #24292f;
+}
+pre.rouge .si {
+  color: #24292f;
+}
+pre.rouge .ge {
+  color: #24292f;
+  font-style: italic;
+}
+pre.rouge .gs {
+  color: #24292f;
+  font-weight: bold;
+}
+</style>
+<style>
     pre.rouge .hll {
         background-color: #ffc;
         display: block;
@@ -451,7 +565,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="details">
 <span id="author" class="author">Thomas Stütz</span><br>
 <span id="revnumber">version 1.0.0,</span>
-<span id="revdate">2024-10-04</span>
+<span id="revdate">2024-11-09</span>
 <br><span id="revremark">Lecture Notes for Courses at HTL Leonding</span>
 </div>
 <div id="toc" class="toc2">
@@ -476,6 +590,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_jwt">7.1. JWT</a></li>
 <li><a href="#_mob_programming">7.2. MOB-Programming</a></li>
 <li><a href="#_git_secret">7.3. git-secret</a></li>
+</ul>
+</li>
+<li><a href="#_2024_11_08">8. 2024-11-08</a>
+<ul class="sectlevel2">
+<li><a href="#_cdi">8.1. CDI</a></li>
+<li><a href="#_security">8.2. Security</a></li>
+<li><a href="#_exkurs_container_managed_persistance_vs_manuelle_transaktionen">8.3. Exkurs: container managed persistance vs manuelle Transaktionen</a></li>
+<li><a href="#_norman_doors">8.4. Norman Doors</a></li>
 </ul>
 </li>
 </ul>
@@ -869,11 +991,194 @@ JH6odqFX9xlwIteYAQCpy+sU3bh2kdbjMb6Q1Td4F1zoSsav+lB+ZPENjRlnDw==
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_2024_11_08"><a class="anchor" href="#_2024_11_08"></a>8. 2024-11-08</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_cdi"><a class="anchor" href="#_cdi"></a>8.1. CDI</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.jboss.org/weld/reference/latest/en-US/html_single/" target="_blank" rel="noopener">Weld Dependency Framework</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_security"><a class="anchor" href="#_security"></a>8.2. Security</h3>
+<div class="sect3">
+<h4 id="_bsp_1_basic_authentication_mit_user_und_password_base64_codiert"><a class="anchor" href="#_bsp_1_basic_authentication_mit_user_und_password_base64_codiert"></a>8.2.1. Bsp 1: Basic Authentication mit User und Password base64 codiert</h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/authorization-and-authentication.png" alt="authorization and authentication">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_bsp_2_authorization_mit_annotations"><a class="anchor" href="#_bsp_2_authorization_mit_annotations"></a>8.2.2. Bsp 2: Authorization mit Annotations</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Problem: Man braucht public-Ressourcen um einen Anlaufpunkt fürs Anmelden zu haben bzw  als Frontpage</p>
+</li>
+<li>
+<p>Wir möchten mit Annotations arbeiten, um bei Ressourcen zB @AllowAll darüberschreiben zu können</p>
+</li>
+<li>
+<p>Es werden Annotations eingeführt</p>
+</li>
+<li>
+<p>Erstellen einer Annotation @AllowAll</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><span class="kn">package</span> <span class="nn">at.htl.auth</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.lang.annotation.ElementType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.lang.annotation.Retention</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.lang.annotation.RetentionPolicy</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.lang.annotation.Target</span><span class="o">;</span>
+
+<span class="nd">@Target</span><span class="o">({</span><span class="nc">ElementType</span><span class="o">.</span><span class="na">TYPE</span><span class="o">,</span> <span class="nc">ElementType</span><span class="o">.</span><span class="na">METHOD</span><span class="o">})</span>
+<span class="nd">@Retention</span><span class="o">(</span><span class="nc">RetentionPolicy</span><span class="o">.</span><span class="na">RUNTIME</span><span class="o">)</span>
+<span class="kd">public</span> <span class="nd">@interface</span> <span class="nc">AllowAll</span> <span class="o">{</span>
+<span class="o">}</span></code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Im authenticationFilter wird überprüft, ob AllowAll. Sicherlich besser in AuthorizationFilter</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_bsp_3_login_in_session_speichern"><a class="anchor" href="#_bsp_3_login_in_session_speichern"></a>8.2.3. Bsp 3: Login in Session speichern</h4>
+<div class="paragraph">
+<p><span class="line-through">* Übung
+** Richtigstellen: Überprüfung von AllowAll vom AuthenticationFilter zu AuthorizationFilter. Wenn bei Klasse eine strengere Permission steht und bei MEthoden eine @AllowAll, dann gilt immer die freizügigere Permission</span></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In LoginResource wird eine Session erstellt (SetCookie)</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>GET http://localhost:8080/hello</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">result</div>
+<div class="content">
+<pre>Hello RESTEasy x</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Problem: Jeder darf auf Resource zugreifen</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>###
+
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+  "username": "chris",
+  "password": "password"
+}
+
+&gt; {% client.global.set("cookie", response.headers.valueOf("Set-Cookie")); %}
+###
+
+GET http://localhost:8080/hello
+Cookie: {{cookie}}
+###</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">result</div>
+<div class="content">
+<pre>2024-11-08 11:30:19,447 INFO  [at.htl.aut.AuthenticationFilter] (executor-thread-1) Session: Session=b3d07c5b-67e8-4813-8591-0dd2efda6dd5</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Rollen werden erstellt</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Nie in die Lebensdauer von JPA-Entities eingreifen</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_exkurs_container_managed_persistance_vs_manuelle_transaktionen"><a class="anchor" href="#_exkurs_container_managed_persistance_vs_manuelle_transaktionen"></a>8.3. Exkurs: container managed persistance vs manuelle Transaktionen</h3>
+<div class="paragraph">
+<p>zB Gehälter</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Transaktion-Begin
+...
+Transaktions-Commit</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>wenn Problem mittendrin, dann sind die ersten Gehälter bereits überwiesen, die späteren sind noch offen</p>
+</li>
+<li>
+<p>daher SET_ROLLBACK_ONLY verwenden</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Sämtliche Teiltransaktionen werden zurückgerollt</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_norman_doors"><a class="anchor" href="#_norman_doors"></a>8.4. Norman Doors</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.youtube.com/watch?v=qtCEoGyfsxk" class="bare">https://www.youtube.com/watch?v=qtCEoGyfsxk</a></p>
+</li>
+</ul>
+</div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/qtCEoGyfsxk?si=9WBN9wKO_RJ62mSV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div class="ulist">
+<ul>
+<li>
+<p>Erwartungskonformität</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0<br>
-Last updated 2024-10-04 13:06:13 UTC
+Last updated 2024-11-09 06:15:27 UTC
 </div>
 </div>
 </body>
