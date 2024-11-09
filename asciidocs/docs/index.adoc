@@ -239,19 +239,80 @@ public @interface AllowAll {
 
 ==== Bsp 3: Login in Session speichern
 
-* Übung
-** Richtigstellen: Überprüfung von AllowAll vom AuthenticationFilter zu AuthorizationFilter. Wenn bei Klasse eine strengere Permission steht und bei MEthoden eine @AllowAll, dann gilt immer die freizügigere Permission
+[.line-through]#* Übung
+** Richtigstellen: Überprüfung von AllowAll vom AuthenticationFilter zu AuthorizationFilter. Wenn bei Klasse eine strengere Permission steht und bei MEthoden eine @AllowAll, dann gilt immer die freizügigere Permission#
 
 //--
 
-. In LoginResource wird eine Session erstellt (Cookie)
+. In LoginResource wird eine Session erstellt (SetCookie)
+
+----
+GET http://localhost:8080/hello
+----
+
+.result
+----
+Hello RESTEasy x
+----
+
+** Problem: Jeder darf auf Resource zugreifen
+
+----
+###
+
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+  "username": "chris",
+  "password": "password"
+}
+
+> {% client.global.set("cookie", response.headers.valueOf("Set-Cookie")); %}
+###
+
+GET http://localhost:8080/hello
+Cookie: {{cookie}}
+###
+----
+
+.result
+----
+2024-11-08 11:30:19,447 INFO  [at.htl.aut.AuthenticationFilter] (executor-thread-1) Session: Session=b3d07c5b-67e8-4813-8591-0dd2efda6dd5
+----
+
+*** Rollen werden erstellt
+
+Nie in die Lebensdauer von JPA-Entities eingreifen
 
 
 
 
+=== Exkurs: container managed persistance vs manuelle Transaktionen
+
+zB Gehälter
+
+----
+Transaktion-Begin
+...
+Transaktions-Commit
+----
+
+* wenn Problem mittendrin, dann sind die ersten Gehälter bereits überwiesen, die späteren sind noch offen
+
+* daher SET_ROLLBACK_ONLY verwenden
+** Sämtliche Teiltransaktionen werden zurückgerollt
 
 
 
+=== Norman Doors
+
+* https://www.youtube.com/watch?v=qtCEoGyfsxk
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/qtCEoGyfsxk?si=9WBN9wKO_RJ62mSV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+++++
 
 
+* Erwartungskonformität
 
