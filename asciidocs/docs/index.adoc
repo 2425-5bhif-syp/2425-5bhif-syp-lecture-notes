@@ -316,3 +316,10 @@ Transaktions-Commit
 
 * Erwartungskonformität
 
+
+
+== 2024-12-13
+
+image::kanonische-applikation.png[]
+
+
